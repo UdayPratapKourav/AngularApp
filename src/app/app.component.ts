@@ -9,8 +9,14 @@ import { RouterOutlet } from '@angular/router';
 })
 export class AppComponent {
   title = 'Helloworld';
-  imgUrl="assets/bridgelabz_logo.avif"
+  imgUrl="assets/bridgelabz_logo.avif";
+  url="https://www.bridgelabz.com/"
   ngOnInit():void{
     this.title="Hello form Bridgelabz";
+  }
+  onClick($event: MouseEvent){
+    console.log("Clicked",$event);
+    window.open(this.url,"_blank");
+    
   }
 }
