@@ -1,22 +1,26 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { FormsModule } from '@angular/forms';  // ✅ Import FormsModule
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  standalone: true,  // ✅ Standalone component
+  imports: [RouterOutlet, FormsModule],  // ✅ Include FormsModule here
   templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  styleUrls: ['./app.component.scss']  // ✅ Fixed styleUrls (plural)
 })
 export class AppComponent {
   title = 'Helloworld';
-  imgUrl="assets/bridgelabz_logo.avif";
-  url="https://www.bridgelabz.com/"
-  ngOnInit():void{
-    this.title="Hello form Bridgelabz";
+  imgUrl = "assets/bridgelabz_logo.avif";
+  url = "https://www.bridgelabz.com/";
+  userName: string = '';  // ✅ Define userName
+
+  ngOnInit(): void {
+    this.title = "Hello from Bridgelabz";
   }
-  onClick($event: MouseEvent){
-    console.log("Clicked",$event);
-    window.open(this.url,"_blank");
-    
+
+  onClick($event: MouseEvent) {
+    console.log("Clicked", $event);
+    window.open(this.url, "_blank");
   }
 }
